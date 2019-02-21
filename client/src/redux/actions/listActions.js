@@ -30,11 +30,11 @@ export const requestEditCancel = contact => ({type: EDIT_CANCEL});
 
 export const requestCreateItem = () => ({ type: CREATE_ITEM_REQUEST });
 export const receiveCreateItem = item => ({ type: CREATE_ITEM_REQUEST_SUCCESS, item });
-export const receiveCreateItemFail = errors => ({ type: CREATE_ITEM_REQUEST_FAILURE, errors });
+export const receiveCreateItemFail = (item, errors) => ({ type: CREATE_ITEM_REQUEST_FAILURE, item, errors });
 
 export const requestUpdateItem = () => ({ type: UPDATE_ITEM_REQUEST });
 export const receiveUpdateItem = item => ({ type: UPDATE_ITEM_REQUEST_SUCCESS, item });
-export const receiveUpdateItemFail = errors => ({ type: UPDATE_ITEM_REQUEST_FAUILRE, errors });
+export const receiveUpdateItemFail = (item, errors) => ({ type: UPDATE_ITEM_REQUEST_FAUILRE, item, errors });
 
 export const requestDeleteItem = () => ({ type: DELETE_ITEM_REQUEST });
 export const receiveDeleteItem = item => ({ type: DELETE_ITEM_REQUEST_SUCCESS, item });
@@ -90,7 +90,7 @@ export const createContact = contact => {
       dispatch(receiveCreateItem(newItem));
     } else {
       const respBody = await response.json();
-      dispatch(receiveCreateItemFail(respBody.errors));
+      dispatch(receiveCreateItemFail(contact, respBody.errors));
     }
   }
 }
@@ -112,7 +112,7 @@ export const updateContact = contact => {
       dispatch(receiveUpdateItem(updatedItem));
     } else {
       const respBody = await response.json();
-      dispatch(receiveUpdateItemFail(respBody.errors));
+      dispatch(receiveUpdateItemFail(contact, respBody.errors));
     }
   }
 }

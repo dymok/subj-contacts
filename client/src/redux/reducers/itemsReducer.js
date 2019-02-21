@@ -63,6 +63,7 @@ export default function(state = initialState, action) {
     case CREATE_ITEM_REQUEST_FAILURE:
       return {
         ...state,
+        edit: action.item,
         editErrors: action.errors
       }
     case UPDATE_ITEM_REQUEST_SUCCESS:
@@ -81,6 +82,7 @@ export default function(state = initialState, action) {
     case UPDATE_ITEM_REQUEST_FAUILRE:
       return {
         ...state,
+        edit: action.item,
         editErrors: action.errors
       }
     case DELETE_ITEM_REQUEST_SUCCESS:

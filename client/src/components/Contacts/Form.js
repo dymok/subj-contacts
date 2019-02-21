@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 export default class ContactForm extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
-    const { id, firstname, lastname, phone, address } = props.contact;
+    const { id = '', firstname = '', lastname = '', phone = '', address = '' } = props.contact;
     this.state = {
       id,
       firstname,
@@ -31,7 +30,7 @@ export default class ContactForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.contact) {
-      const { id, firstname, lastname, phone, address } = nextProps.contact;
+      const { id = '', firstname = '', lastname = '', phone = '', address = '' } = nextProps.contact;
       this.setState({
         id,
         firstname,
