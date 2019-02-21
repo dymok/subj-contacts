@@ -1,0 +1,28 @@
+.empty-list {
+  font-style: italic;
+  text-align: center;
+}
+.contacts-table {
+  width: 100%;
+}
+td, th {
+  text-align: left;
+}
+
+form {
+  margin: 1em auto;
+  width: 320px;
+}
+
+label {
+  display: inline-block;
+  width: 110px;
+}
+
+input {
+  width: 200px;
+}
+
+.form-errors {
+  color: #ff0000;
+}
